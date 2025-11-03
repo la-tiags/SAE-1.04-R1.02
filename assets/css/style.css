@@ -6,8 +6,6 @@
   font-style: normal;
 }
 
-
-/*Test*/
 * {
   box-sizing: border-box;
   margin: 0;
@@ -92,7 +90,6 @@ nav {
 }
 
 /*Bouton de mission 1*/
-
 #mission1_texte h2 {
   text-align: center;
 }

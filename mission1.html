@@ -28,7 +28,58 @@
     </nav>
   </header>
   <main>
-    
+    <h1>Mission 1</h1>
+    <section>
+      <h2>Contexte</h2>
+      <p>La mission 1 concerne l’étude et l’analyse des données d’une base pour la société KDou, dans le cadre du projet
+        SAE S1-04 à Paris Cité. L’objectif était d’identifier les éléments structurants de la base (tables, clés
+        primaires et étrangères), de naviguer, filtrer et explorer les informations client, fournisseur, produit,
+        commande et catégories afin d’évaluer la qualité des données et proposer une amélioration du système existant.
+      </p>
+    </section>
+    <section>
+      <h2>Bilan sur l'étude des données</h2>
+      <h3>Identification et analyse</h3>
+      <ul>
+        <li>Chaque table présente des clés primaires (ex : NFournisseur pour Fournisseur, RfProduit pour Produit) et des
+          clés étrangères assurant la liaison entre les entités (NFournisseur, CodeCatégorie dans Produit, CodeClient
+          dans Commande, etc.).</li>
+        <li>Les colonnes sont analysées pour leur utilité pour la société (ex : Adresse pour gérer la logistique et
+          livraisons, Coef de marge pour optimiser la rentabilité, MailClient pour l’envoi de devis et notifications).
+        </li>
+      </ul>
+      <h3>Navigation et exploration</h3>
+      <h4>Exemple de filtrage</h4>
+
+      <h3>Identification et analyse</h3>
+      <ul>
+        <li>Identification de problèmes de format : Code Postal et Téléphone en texte au lieu de numérique, champs avec
+          valeurs manquantes comme Région, anomalies sur les adresses mail (ex : orenge.fr au lieu de orange.fr).</li>
+        <li>Quelques données manquantes ou incohérentes (ex : coût d’achat manquant pour le produit Vbeer, format
+          incorrect pour quantité par unité).
+        </li>
+      </ul>
+    </section>
+    <section>
+      <h2>Conclusion</h2>
+      <p>L’étude approfondie de la base a permis d’identifier de nombreuses forces (structuration, relations, capacité
+        de filtrage) et faiblesses (formats non homogènes, incohérences et anomalies de saisie). La mission 1 propose
+        donc d’améliorer la gestion et la qualité des données par des règles de validation, des contrôles réguliers et
+        une normalisation des formats afin de fiabiliser l’exploitation et l’analyse pour la société KDou.</p>
+      <h3>Perspective d'amélioration</h3>
+      <ul>
+        <li>Définir des formats stricts pour chaque type de données :</li>
+        <ul>
+          <li>Exemple : imposer un format numérique pour le Code Postal, le téléphone et les quantités.</li>
+          <li>Utiliser des fonctions automatisées type SI, ESTNA pour signaler et corriger les anomalies
+            automatiquement.</li>
+          <li>Renforcer les contrôles de saisie et la validation (ex : adresses email, code postal) pour éviter les
+            erreurs humaines récurrentes.</li>
+          <li>Mettre en place une vérification régulière de la qualité des données pour assurer la fiabilité des
+            analyses et statistiques.</li>
+        </ul>
+      </ul>
+    </section>
   </main>
 
   <footer>
