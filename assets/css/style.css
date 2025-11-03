@@ -1,0 +1,238 @@
+.inter-police {
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 100;
+  font-style: normal;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: whitesmoke;
+  font-family: "Inter", sans-serif;
+}
+
+/* Bar de navigation */
+nav {
+  width: 100%;
+  padding: 1rem 5%;
+  background-color: #062b42;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  margin-bottom: 2rem;
+  top: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#menu-toggle {
+  display: none;
+}
+
+.menu-hamburger {
+  display: none;
+  font-size: 2.5rem;
+  color: white;
+  cursor: pointer;
+  margin: 0 auto;
+  user-select: none;
+}
+
+.logo {
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.barre_navigation {
+  list-style: none;
+  display: flex;
+  gap: 2rem;
+}
+
+.barre_navigation li a {
+  position: relative;
+  text-decoration: none;
+  font-size: 1.05em;
+  font-weight: 500;
+  color: #fff;
+}
+
+.barre_navigation li a:hover {
+  color: #ffffff;
+  text-shadow: 0 0 10px #ffffff;
+}
+
+.bloc {
+  padding: 20px;
+  margin: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.bloc ul {
+  margin-left: 30px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+/* Section Accueil */
+.section_accueil p {
+  text-align: center;
+  padding-left: 10px;
+}
+
+/*Bouton de mission 1*/
+
+#mission1_texte h2 {
+  text-align: center;
+}
+
+.titre {
+  padding: 15px 0 10px 20px;
+}
+
+.mission1btn {
+  display: block;
+  margin: 20px auto;
+  padding: 10px 40px;
+  background-color: #404548;
+  font-size: 1.05rem;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.mission1btn:hover {
+  background-color: #2c2f30;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Section Membres */
+.membre {
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  /* espace horizontal entre chaque membre */
+  flex-wrap: wrap;
+  /* va à la ligne sur petits écrans */
+  text-align: center
+}
+
+.cercle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 200px;
+  background: transparent;
+  padding-top: 20px;
+}
+
+.cercle :hover {
+  transform: scale(1.05);
+  transition: transform 0.3s;
+}
+
+.membre_photo {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 50%;
+  /* rend l'image parfaitement ronde */
+  border: 5px solid #fff;
+  /* jolie bordure blanche (option) */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.desc {
+  font-size: 1em;
+  padding-top: 10px;
+  ;
+}
+
+.role {
+  padding-top: 10px;
+  font-style: italic;
+}
+
+h3 {
+  padding-top: 10px;
+}
+
+/*Footer*/
+footer {
+  background-color: #404548;
+  color: white;
+  text-align: center;
+  padding: 10px 0;
+  bottom: 0;
+  width: 100%;
+  font-size: 0.9em;
+  margin-top: 40px;
+}
+
+/* Responsive pour petits écrans */
+@media screen and (max-width: 700px) {
+  body {
+    padding-top: 80px;
+  }
+
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    flex-wrap: wrap;
+    z-index: 1000;
+    margin-bottom: 0;
+  }
+
+  /* Afficher le hamburger sur mobile */
+  .menu-hamburger {
+    display: block;
+    position: absolute;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  /* Cacher le menu par défaut */
+  .barre_navigation {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    gap: 0;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    background-color: #062b42;
+    z-index: 999;
+  }
+
+  .barre_navigation li {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .barre_navigation li a {
+    display: block;
+    padding: 15px 0;
+  }
+
+  /* IMPORTANT : Afficher le menu quand checkbox cochée */
+  #menu-toggle:checked~.barre_navigation {
+    display: flex !important;
+  }
+
+  .logo {
+    font-size: 1.5rem;
+  }
+}
