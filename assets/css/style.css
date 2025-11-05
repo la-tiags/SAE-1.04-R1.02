@@ -15,6 +15,7 @@
 body {
   background: whitesmoke;
   font-family: "Inter", sans-serif;
+  padding-top: 65px;
 }
 
 /* Bar de navigation */
@@ -28,6 +29,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: fixed;
 }
 
 #menu-toggle {
