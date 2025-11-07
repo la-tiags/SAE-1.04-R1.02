@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/ico" href="assets/css/img/favicon.ico" />
+    <title>Mission 2</title>
+    <link rel="stylesheet" href=".assets\css\style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200..900&display=swap');
+    </style>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <input type="checkbox" id="menu-toggle" aria-label="menu">
+            <label for="menu-toggle" class="menu-hamburger">☰</label>
+            <a href="index.html" class="logo">DataVision</a>
+            <ul class="barre_navigation">
+                <li><a href="index.html">Accueil</a></li>
+                <li><a href="mission1.html">Mission 1</a></li>
+                <li><a href="mission2.html">Mission 2</a></li>
+                <li><a href="mission3.html">Mission 3</a></li>
+                <li><a href="conclusion.html">Conclusion</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h1>Mission 2</h1>
+        <section>
+            <h2>Contexte</h2>
+            <p>
+                Cette mission porte sur l’exploitation de la base de données KDou via une interface low code (Access).
+                L’objectif était d’explorer, manipuler et interroger la base de façon intuitive afin de faciliter le
+                travail des utilisateurs non experts en SQL.
+            </p>
+        </section>
+        <section>
+            <h2>Indicateur intéressant : Produits américains à coût d’achat inférieur à 25 €</h2>
+            <ul>
+                <li>
+                    Objectif : Lister, par fournisseur, les produits américains présentant un coût d’achat inférieur à
+                    25 €. Optimiser ainsi les approvisionnements à bas coût.
+                </li>
+                <li>
+                    Interprétation : Cet indicateur aide KDou à identifier ses partenaires américains proposant des
+                    produits à forte marge potentielle. Il permet d’ajuster les commandes et de négocier des tarifs sur
+                    les volumes importants.
+                </li>
+            </ul>
+            <figure>
+                <img src="assets/img/mission2_fou_us_access.png" alt="Résultat Access – Produits américains à <25 €">
+                <figcaption>Extrait Access – Liste des produits américains à moins de 25 € (capture issue de notre
+                    manipulation Access)</figcaption>
+            </figure>
+            <table>
+                <caption>Exemple de résultats – Fournisseurs américains à coût réduit</caption>
+                <thead>
+                    <tr>
+                        <th>Fournisseur</th>
+                        <th>Ville</th>
+                        <th>Produit</th>
+                        <th>Coût d’achat (€)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Exotic Liquids</td>
+                        <td>Burlington</td>
+                        <td>Chai</td>
+                        <td>18,00</td>
+                    </tr>
+                    <tr>
+                        <td>Specialty Meats</td>
+                        <td>Denver</td>
+                        <td>Pastrami</td>
+                        <td>21,50</td>
+                    </tr>
+                </tbody>
+            </table>
+            <details>
+                <summary>Code SQL utilisé (QBE/Access SQL):</summary>
+                <pre>
+SELECT Fournisseur.Societe, Fournisseur.Ville, Produit.NomProd, Produit.CoutAchat
+FROM Produit
+RIGHT JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour
+WHERE Produit.CoutAchat &lt; 25
+  AND Fournisseur.Pays IN ("Etats-Unis","USA")
+ORDER BY Produit.NomProd;
+        </pre>
+            </details>
+        </section>
+        <section style="text-align:center;">
+            <a href="assets/pdf/SYNTHESE-SAE-2.pdf" class="mission1btn" target="_blank">
+                Télécharger le rapport Mission 2 (PDF)
+            </a>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 DataVision. Tous droits réservés.</p>
+    </footer>
+</body>
+
+</html>

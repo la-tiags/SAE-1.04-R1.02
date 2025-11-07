@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="icon" type="image/ico" href="assets\css\img\favicon.ico" />
+  <link rel="icon" type="image/ico" href=".assets\img\favicon.ico" />
   <title>Mission 1</title>
-  <link rel="stylesheet" href="assets\css\style.css">
+  <link rel="stylesheet" href=".assets\css\mission1.css">
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
   </style>
@@ -40,7 +40,7 @@
       <h2>Bilan sur l'étude des données</h2>
       <h3>Identification et analyse</h3>
       <ul>
-        <li>Chaque table présente des clés primaires (ex : NFournisseur pour Fournisseur, RfProduit pour Produit) et des
+        <li>Chaque table présente des <strong>clés primaires</strong> (ex : NFournisseur pour Fournisseur, RfProduit pour Produit) et des
           clés étrangères assurant la liaison entre les entités (NFournisseur, CodeCatégorie dans Produit, CodeClient
           dans Commande, etc.).</li>
         <li>Les colonnes sont analysées pour leur utilité pour la société (ex : Adresse pour gérer la logistique et
@@ -48,14 +48,44 @@
         </li>
       </ul>
       <h3>Navigation et exploration</h3>
-      <h4>Exemple de filtrage</h4>
-
+      <h4>Exemples de filtrage <i>(issus du rapport)</i></h4>
+      <h3>Clients d’Ile-de-France :</h3>
+      <div class="block">
+        <p>On a créé une nouvelle sélectionné les clients d’Ile-de-France en filtrant la
+          colonne en ‘Client d’île de France’ en utilisant la formule = 𝐺𝐴𝑈𝐶𝐻𝐸(𝐹2 : 2)
+          (F2 correspondant à l’attribut Code Postale) pour extraire les deux premiers
+          chiffres du code postal. Ensuite, on applique un filtre sur cette colonne afin de ne
+          conserver que les clients dont les deux premiers chiffres correspondent à l’un
+          des départements d’Ile-de-France (75 et 78 dans ce cas). On a donc trouvé 6
+          clients d’Ile-de-France.régionaux : 75, 77, 78, 91, 92, 93, 94 ou 95 </p>
+        <img class="image" src=".assets\img\mission1_filtre_IDF.png" alt="Filtrage des clients d'Ile-de-France">
+        <h3>Clients n’ayant pas passé de commande :</h3>
+      </div>
+      <div class="block">
+        <p> On a commencé par se rendre dans la table Clientèle, puis on a ajouté une nouvelle colonne intitulée «
+          Commande ? ». Dans cette colonne, on a utilisé la formule suivante : <br> </br>
+          <code>=SI(ESTNA(RECHERCHEV(A2;Commande!B:B;1;FAUX));"Non" ;"Oui" )</code> <br> </br>
+          Cette formule combine <strong>trois fonctions</strong> d’Excel : <br> </br>
+          <strong>RECHERCHEV</strong> : Afin de rechercher la valeur de la cellule A2 (Code Client) dans la colonne B de
+          la table
+          Commande <br> </br>
+          <strong> ESTNA</strong> : Vérifie si la fonction RECHERCHEV renvoie une erreur (#N/A), ce qui indique que le
+          client n’a pas
+          passé de commande.<br> </br>
+          <strong> SI </strong>: Indique « Non » si le client n’a pas de commande (erreur #N/A), et « Oui » sinon.
+          On a donc 4 clients au total qui n’ont pas passé de commande<br> </br>
+        </p>
+        <img src=".assets\img\mission1_filtre_CSC.png" alt="Filtrage des clients qui n'ont pas passé de commande">
+      </div>
       <h3>Identification et analyse</h3>
       <ul>
-        <li>Identification de problèmes de format : Code Postal et Téléphone en texte au lieu de numérique, champs avec
-          valeurs manquantes comme Région, anomalies sur les adresses mail (ex : orenge.fr au lieu de orange.fr).</li>
-        <li>Quelques données manquantes ou incohérentes (ex : coût d’achat manquant pour le produit Vbeer, format
-          incorrect pour quantité par unité).
+        <li><strong>Identification de problèmes de format :</strong> Code Postal et Téléphone en texte au lieu de
+          numérique, champs
+          avec valeurs manquantes comme Région, anomalies sur les adresses mail <i>(ex : orenge.fr au lieu de
+            orange.fr)</i>.</li>
+        <li>Quelques données <strong>manquantes</strong> ou <strong>incohérentes</strong> <i>(ex : coût d’achat manquant
+            pour le produit Vbeer, format
+            incorrect pour quantité par unité)</i>.
         </li>
       </ul>
     </section>
@@ -65,26 +95,34 @@
         de filtrage) et faiblesses (formats non homogènes, incohérences et anomalies de saisie). La mission 1 propose
         donc d’améliorer la gestion et la qualité des données par des règles de validation, des contrôles réguliers et
         une normalisation des formats afin de fiabiliser l’exploitation et l’analyse pour la société KDou.</p>
-      <h3>Perspective d'amélioration</h3>
+      <h3>Perspectives d'amélioration</h3>
       <ul>
         <li>Définir des formats stricts pour chaque type de données :</li>
         <ul>
-          <li>Exemple : imposer un format numérique pour le Code Postal, le téléphone et les quantités.</li>
-          <li>Utiliser des fonctions automatisées type SI, ESTNA pour signaler et corriger les anomalies
-            automatiquement.</li>
-          <li>Renforcer les contrôles de saisie et la validation (ex : adresses email, code postal) pour éviter les
-            erreurs humaines récurrentes.</li>
-          <li>Mettre en place une vérification régulière de la qualité des données pour assurer la fiabilité des
-            analyses et statistiques.</li>
+          <li> <strong>Exemple</strong> : imposer un format numérique pour le Code Postal, le téléphone et les
+            quantités.</li>
+          <ul>
+            <li>Utiliser des <strong>fonctions automatisées</strong> type SI, ESTNA pour signaler et corriger les anomalies
+              automatiquement.</li>
+            <li>Renforcer les <strong>contrôles de saisie et la validation</strong> <i>(ex : adresses email, code postal)</i>  pour éviter les
+              erreurs humaines récurrentes.</li>
+            <li>Mettre en place une <strong>vérification régulière de la qualité des données</strong> pour assurer la fiabilité des
+              analyses et statistiques.</li>
+          </ul>
         </ul>
       </ul>
     </section>
+    <section>
+      <h2>Rapport complet</h2>
+      <p>Pour consulter le rapport complet de la mission 1, veuillez cliquer sur le lien ci-dessous :</p>
+      <a href=".assets\pdf\rapport1.pdf" class="lienbtn" target="_blank" download>
+        Télécharger le rapport Mission 1 (PDF)
+      </a>
+    </section>
   </main>
-
   <footer>
     <p>&copy; 2025 DataVision. Tous droits réservés.</p>
   </footer>
-
 </body>
 
 </html>
