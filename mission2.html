@@ -37,60 +37,65 @@
                 travail des utilisateurs non experts en SQL.
             </p>
         </section>
-        <section>
-            <h2>Indicateur intéressant : Produits américains à coût d’achat inférieur à 25 €</h2>
-            <ul>
-                <li>
-                    Objectif : Lister, par fournisseur, les produits américains présentant un coût d’achat inférieur à
-                    25 €. Optimiser ainsi les approvisionnements à bas coût.
-                </li>
-                <li>
-                    Interprétation : Cet indicateur aide KDou à identifier ses partenaires américains proposant des
-                    produits à forte marge potentielle. Il permet d’ajuster les commandes et de négocier des tarifs sur
-                    les volumes importants.
-                </li>
-            </ul>
+        <section class="indicateur">
+            <h2>Indicateur 1 : Produits américains à coût d’achat inférieur à 25 €</h2>
+            <p> <strong>Objectif : </strong>Lister, par fournisseur, les produits américains présentant un coût d’achat
+                inférieur à
+                25 €. Optimiser ainsi les approvisionnements à bas coût.</p>
+            <p><strong>Interprétation : </strong>Cet indicateur aide KDou à identifier ses partenaires américains
+                proposant des
+                produits à forte marge potentielle. Il permet d’ajuster les commandes et de négocier des tarifs sur
+                les volumes importants.</p>
             <figure>
-                <img src="assets/img/mission2_fou_us_access.png" alt="Résultat Access – Produits américains à <25 €">
-                <figcaption>Extrait Access – Liste des produits américains à moins de 25 € (capture issue de notre
-                    manipulation Access)</figcaption>
+                <img src=".assets\img\mission2_I1.png" alt="Résultat Access – Produits américains à <25 €">
+                <figcaption><i>Extrait Access – Liste des produits américains à moins de 25 € (capture issue de notre
+                        manipulation Access) </i></figcaption>
             </figure>
-            <table>
-                <caption>Exemple de résultats – Fournisseurs américains à coût réduit</caption>
-                <thead>
-                    <tr>
-                        <th>Fournisseur</th>
-                        <th>Ville</th>
-                        <th>Produit</th>
-                        <th>Coût d’achat (€)</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Exotic Liquids</td>
-                        <td>Burlington</td>
-                        <td>Chai</td>
-                        <td>18,00</td>
-                    </tr>
-                    <tr>
-                        <td>Specialty Meats</td>
-                        <td>Denver</td>
-                        <td>Pastrami</td>
-                        <td>21,50</td>
-                    </tr>
-                </tbody>
-            </table>
-            <details>
-                <summary>Code SQL utilisé (QBE/Access SQL):</summary>
-                <pre>
-SELECT Fournisseur.Societe, Fournisseur.Ville, Produit.NomProd, Produit.CoutAchat
-FROM Produit
-RIGHT JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour
-WHERE Produit.CoutAchat &lt; 25
-  AND Fournisseur.Pays IN ("Etats-Unis","USA")
-ORDER BY Produit.NomProd;
-        </pre>
-            </details>
+            <div class="block">
+                <div class="block-in">
+                    <p class="block-titre">Code SQL</p>
+                    <p class="codeSQL">SELECT
+                        Fournisseur.Societe,
+                        Fournisseur.Ville,
+                        Produit.NomProd,
+                        Produit.CoutAchat <br></br>
+                        FROM
+                        Produit
+                        RIGHT JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour<br></br>
+                        WHERE<br></br>
+                        Produit.CoutAchat < 25 AND Fournisseur.Pays IN ("Etats-Unis", "USA" ) <br></br>ORDER BY
+                            Produit.NomProd
+                            ;</p>
+                </div>
+            </div>
+        </section>
+        <section class="indicateur">
+            <h2>Indicateur 2 : Identification des produits conditionnés en verre ou en carton</h2>
+            <p><strong>Objectif :</strong> Identifier rapidement tous les produits dont l’unité de conditionnement
+                mentionne
+                « verre » ou « carton ». Ce filtre permet à KDou de mieux gérer l’offre en fonction des emballages
+                recyclables ou fragiles, utile pour la logistique, l’empreinte écologique et la gestion des stocks
+                sensibles. </p>
+            <p><strong>Interprétation :</strong> Ce filtrage offre une vision précise sur la
+                part de produits à emballage spécifique. Il aide à anticiper les besoins en transport, à cibler
+                les actions écoresponsables (ex : sensibilisation au tri), et à répondre au mieux aux attentes
+                des clients ou des partenaires investis dans la démarche durable.
+            </p>
+            <figure>
+                <img src=".assets\img\mission2_I2.png" alt="Résultat Access – Produits américains à <25 €">
+                <figcaption><i>Extrait Access – Liste des produits conditionnés en verre ou en carton (capture issue de
+                        notre
+                        manipulation Access) </i></figcaption>
+            </figure>
+            <div class="block">
+                <div class="block-in">
+                    <p class="block-titre">Code SQL</p>
+                    <p class="codeSQL">SELECT Produit.NomProd <br></br>
+                        FROM Produit <br></br>
+                        WHERE QteParUnit LIKE "*verre*" <br></br>
+                        OR QteParUnit LIKE "*carton*";</p>
+                </div>
+            </div>
         </section>
         <section>
             <h2>Rapport complet</h2>
