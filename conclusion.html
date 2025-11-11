@@ -31,10 +31,30 @@
     <h1>Conclusion</h1>
     <section>
       <h2>Bilan sur l'analyse des données de Kdou</h2>
-      <p>L’objectif était d’identifier les éléments structurants de la base (tables, clés
-        primaires et étrangères), de naviguer, filtrer et explorer les informations client, fournisseur, produit,
-        commande et catégories afin d’évaluer la qualité des données et proposer une amélioration du système existant.
+      <p>L’audit approfondi de la base KDou met en avant un système d’information bien structuré, mais nécessitant
+        certains ajustements pour un usage décisionnel optimal.
       </p>
+      <ul>
+        <li><strong>Points forts :</strong>
+          <ul>
+            <li>Modèle relationnel solide : relations entre tables cohérentes, normalisation respectée.</li>
+            <li>Efficacité des réseaux clients : le modèle pilote-partenaire est pertinent (ex : équilibre des commandes NOSGK/ISAEP)</li>
+            <li>Diversification maîtrisée : la part importante du CA avec des fournisseurs hors UE confirme l’ouverture à l’international.</li>
+          </ul>
+        </li>
+        <li><strong>Axes d’amélioration :</strong>
+          <ul>
+            <li>Fiabilité des données à renforcer (anomalies sur codes postaux, pays, emails).</li>
+            <li>Catalogue produit à optimiser (produits dormants à revoir).</li>
+            <li>Gouvernance à formaliser (contrôles qualité et monitoring plus rigoureux attendus)</li>
+          </ul>
+        </li>
+        <li><strong>Recommandations :</strong>
+          <ul>
+            <li>Mettre en place des règles de validation des données à l’entrée.</li>
+            <li>Effectuer un nettoyage régulier pour éliminer les doublons et corriger les erreurs.</li>
+            <li>Suivi des fournisseurs inactifs.</li>
+          </ul>
     </section>
     <section>
       <h2>Conclusion sur les outils utilisés</h2>

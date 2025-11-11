@@ -104,6 +104,3 @@ Présentez le **contexte général** du projet KDou.
 - laurent.giustignano@u-paris.fr  
 - florence.mesatfa-fessy@u-paris.fr  
 
----
-
-> **Bon courage !**
