@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/ico" href="assets/css/img/favicon.ico" />
     <title>Mission 2</title>
-    <link rel="stylesheet" href=".assets\css\mission2.css">
+    <link rel="stylesheet" href=".assets\css\mission.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,200..900&display=swap');
     </style>
@@ -51,25 +51,22 @@
                 <figcaption><i>Extrait Access – Liste des produits américains à moins de 25 € (capture issue de notre
                         manipulation Access) </i></figcaption>
             </figure>
-            <div class="block">
-                <div class="block-in">
-                    <p class="block-titre">Code SQL</p>
-                    <p class="codeSQL">SELECT
+            <p>Code SQL</p>
+            <pre>
+                        SELECT
                         Fournisseur.Societe,
                         Fournisseur.Ville,
                         Produit.NomProd,
-                        Produit.CoutAchat <br></br>
+                        Produit.CoutAchat
                         FROM
                         Produit
-                        RIGHT JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour<br></br>
-                        WHERE<br></br>
-                        Produit.CoutAchat < 25 AND Fournisseur.Pays IN ("Etats-Unis", "USA" ) <br></br>ORDER BY
-                            Produit.NomProd
-                            ;</p>
-                </div>
-            </div>
+                        RIGHT JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour
+                        WHERE
+                        Produit.CoutAchat < 25 AND Fournisseur.Pays IN ("Etats-Unis", "USA" ) 
+                        ORDER BY
+                            Produit.NomProd;</pre>
         </section>
-        <section class="indicateur">
+        <section>
             <h2>Indicateur 2 : Identification des produits conditionnés en verre ou en carton</h2>
             <p><strong>Objectif :</strong> Identifier rapidement tous les produits dont l’unité de conditionnement
                 mentionne
@@ -82,20 +79,18 @@
                 des clients ou des partenaires investis dans la démarche durable.
             </p>
             <figure>
-                <img src=".assets\img\mission2_I2.png" alt="Résultat Access – Produits américains à <25 €">
+                <img src=".assets\img\mission2_I2.png" alt="Résultat Access – Produits américains à <25 €"
+                    style="max-width:100%; max-height:350px; object-fit:contain;">
                 <figcaption><i>Extrait Access – Liste des produits conditionnés en verre ou en carton (capture issue de
                         notre
                         manipulation Access) </i></figcaption>
             </figure>
-            <div class="block">
-                <div class="block-in">
-                    <p class="block-titre">Code SQL</p>
-                    <p class="codeSQL">SELECT Produit.NomProd <br></br>
-                        FROM Produit <br></br>
-                        WHERE QteParUnit LIKE "*verre*" <br></br>
-                        OR QteParUnit LIKE "*carton*";</p>
-                </div>
-            </div>
+                    <p>Code SQL</p>
+                    <pre>
+                        SELECT Produit.NomProd
+                        FROM Produit
+                        WHERE QteParUnit LIKE "*verre*"
+                          OR QteParUnit LIKE "*carton*";</pre>
         </section>
         <section>
             <h2>Rapport complet</h2>

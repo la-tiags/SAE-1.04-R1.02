@@ -13,16 +13,26 @@
 }
 
 body {
-  background: whitesmoke;
+  background-color: #fff;
   font-family: "Inter", sans-serif;
   padding-top: 65px;
+}
+
+main {
+  background: whitesmoke;
+  box-shadow: #9c9c9c 0px 4px 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 80vh;
 }
 
 /* Bar de navigation */
 nav {
   width: 100%;
   padding: 1rem 5%;
-  background-color: #062b42;
+  background-color: LightBlue;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 2rem;
   top: 0%;

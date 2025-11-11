@@ -12,20 +12,26 @@
 }
 
 body {
-  background: whitesmoke;
+  background-color: #fff;
   font-family: "Inter", sans-serif;
   padding-top: 65px;
 }
 
 main {
-  padding-left: 20px;
+  background: whitesmoke;
+  box-shadow: #9c9c9c 0px 4px 8px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  border-radius: 8px;
+  min-height: 80vh;
 }
 
 /* Bar de navigation */
 nav {
   width: 100%;
   padding: 1rem 5%;
-  background-color: #062b42;
+  background-color: LightBlue;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   margin-bottom: 2rem;
   top: 0%;
@@ -74,20 +80,6 @@ nav {
   text-shadow: 0 0 10px #ffffff;
 }
 
-.bloc {
-  padding: 20px;
-  margin: 20px;
-  background-color: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.bloc ul {
-  margin-left: 30px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-}
-
 /*Main*/
 h1 {
   padding-top: 15px;
@@ -108,22 +100,28 @@ p {
   margin-bottom: 10px;
 }
 
-image {
-  max-width: 100%;
-  height: auto;
-  margin-top: 20px;
-  margin-bottom: 10px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-}
-
 li {
   margin-left: 30px;
   line-height: 1.6em;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 10px auto;
+}
+
+pre {
+  text-align: left;
+  font-size: 1em;
+  background-color: #c3c3c3;
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  margin-top: 10px;
+  margin-bottom: 10px;
+  white-space: pre;
 }
 
 .lienbtn {
@@ -143,6 +141,59 @@ li {
   color: #062b42;
 
 }
+
+/*Tableau Comparatif*/
+table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 12px rgba(34, 165, 218, 0.12);
+  font-family: 'Segoe UI', Arial, sans-serif;
+  background: #f9fbfc;
+}
+
+caption {
+  caption-side: top;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 12px;
+  color: #2289c6;
+  letter-spacing: 1px;
+}
+
+thead th {
+  background-color: #22a5da;
+  color: #fff;
+  padding: 12px;
+  font-size: 1.05em;
+  border-right: 2px solid #f9fbfc;
+  border-bottom: 2px solid #2289c6;
+}
+
+tbody tr {
+  border-bottom: 1px solid #dedede;
+}
+
+tbody td,
+tbody th {
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eef6fa;
+}
+
+tbody tr:hover {
+  background-color: #d6eaf8;
+}
+
+th[scope="row"] {
+  font-weight: bold;
+  color: #2289c6;
+}
+
 
 /*Footer*/
 footer {
