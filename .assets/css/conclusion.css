@@ -148,7 +148,6 @@ table {
   margin: 30px auto;
   border-collapse: collapse;
   box-shadow: 0 2px 12px rgba(34, 165, 218, 0.12);
-  font-family: 'Segoe UI', Arial, sans-serif;
   background: #f9fbfc;
 }
 
@@ -162,12 +161,11 @@ caption {
 }
 
 thead th {
-  background-color: #22a5da;
+  background-color: lightskyblue;
   color: #fff;
   padding: 12px;
   font-size: 1.05em;
   border-right: 2px solid #f9fbfc;
-  border-bottom: 2px solid #2289c6;
 }
 
 tbody tr {
@@ -193,7 +191,6 @@ th[scope="row"] {
   font-weight: bold;
   color: #2289c6;
 }
-
 
 /*Footer*/
 footer {

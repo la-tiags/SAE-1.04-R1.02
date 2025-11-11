@@ -31,79 +31,160 @@
     <h1>Mission 3</h1>
     <section>
       <h2>Contexte</h2>
-      <p>L’objectif était d’identifier les éléments structurants de la base (tables, clés
-        primaires et étrangères), de naviguer, filtrer et explorer les informations client, fournisseur, produit,
-        commande et catégories afin d’évaluer la qualité des données et proposer une amélioration du système existant.
+      <p>L’objectif de cette dernière mission était de relever des indicateurs pertinents en lien avec des thèmes
+        spécifiques à partir de la base de
+        données KDou en utilisant des requêtes SQL avancées. Ces indicateurs visent à fournir des insights
+        exploitables pour optimiser les opérations commerciales et la prise de décision stratégique.</p>
       </p>
     </section>
     <section>
-      <h2>Bilan sur l'étude des données</h2>
-      <h3>Identification et analyse</h3>
-      <ul>
-        <li>Chaque table présente des clés primaires (ex : NFournisseur pour Fournisseur, RfProduit pour Produit) et des
-          clés étrangères assurant la liaison entre les entités (NFournisseur, CodeCatégorie dans Produit, CodeClient
-          dans Commande, etc.).</li>
-        <li>Les colonnes sont analysées pour leur utilité pour la société (ex : Adresse pour gérer la logistique et
-          livraisons, Coef de marge pour optimiser la rentabilité, MailClient pour l’envoi de devis et notifications).
-        </li>
-      </ul>
-      <h3>Navigation et exploration</h3>
-      <h4>Exemples de filtrage <i>(issus du rapport)</i></h4>
-      <h3>Clients d’Ile-de-France :</h3>
-      <div class="block">
-        <p>On a créé une nouvelle sélectionné les clients d’Ile-de-France en filtrant la
-          colonne en ‘Client d’île de France’ en utilisant la formule = 𝐺𝐴𝑈𝐶𝐻𝐸(𝐹2 : 2)
-          (F2 correspondant à l’attribut Code Postale) pour extraire les deux premiers
-          chiffres du code postal. Ensuite, on applique un filtre sur cette colonne afin de ne
-          conserver que les clients dont les deux premiers chiffres correspondent à l’un
-          des départements d’Ile-de-France (75 et 78 dans ce cas). On a donc trouvé 6
-          clients d’Ile-de-France.régionaux : 75, 77, 78, 91, 92, 93, 94 ou 95 </p>
-        <img src=".assets\img\mission1_filtre_IDF.png" alt="Filtrage des clients d'Ile-de-France">
-        <h3>Clients n’ayant pas passé de commande :</h3>
-      </div>
-      <div class="block">
-        <p> On a commencé par se rendre dans la table Clientèle, puis on a ajouté une nouvelle colonne intitulée «
-          Commande ? ». Dans cette colonne, on a utilisé la formule suivante :
-          =SI(ESTNA(RECHERCHEV(A2;Commande!B:B;1;FAUX));"Non" ;"Oui" )
-          Cette formule combine trois fonctions d’Excel :
-          RECHERCHEV : Afin de rechercher la valeur de la cellule A2 (Code Client) dans la colonne B de la table
-          Commande
-          ESTNA : Vérifie si la fonction RECHERCHEV renvoie une erreur (#N/A), ce qui indique que le client n’a pas
-          passé de commande.
-          SI : Indique « Non » si le client n’a pas de commande (erreur #N/A), et « Oui » sinon.
-          On a donc 4 clients au total qui n’ont pas passé de commande
-        </p>
-        <img src=".assets\img\mission1_filtre_CSC.png" alt="Filtrage des clients qui n'ont pas passé de commande">
-      </div>
-      <h3>Identification et analyse</h3>
-      <ul>
-        <li>Identification de problèmes de format : Code Postal et Téléphone en texte au lieu de numérique, champs
-          avec
-          valeurs manquantes comme Région, anomalies sur les adresses mail (ex : orenge.fr au lieu de orange.fr).</li>
-        <li>Quelques données manquantes ou incohérentes (ex : coût d’achat manquant pour le produit Vbeer, format
-          incorrect pour quantité par unité).
-        </li>
-      </ul>
-    </section>
-    <section>
-      <h2>Conclusion</h2>
-      <p>L’étude approfondie de la base a permis d’identifier de nombreuses forces (structuration, relations, capacité
-        de filtrage) et faiblesses (formats non homogènes, incohérences et anomalies de saisie). La mission 1 propose
-        donc d’améliorer la gestion et la qualité des données par des règles de validation, des contrôles réguliers et
-        une normalisation des formats afin de fiabiliser l’exploitation et l’analyse pour la société KDou.</p>
-      <h3>Perspective d'amélioration</h3>
-      <ul>
-        <li>Définir des formats stricts pour chaque type de données :</li>
-        <ul>
-          <li>Exemple : imposer un format numérique pour le Code Postal, le téléphone et les quantités.</li>
-          <li>Utiliser des fonctions automatisées type SI, ESTNA pour signaler et corriger les anomalies
-            automatiquement.</li>
-          <li>Renforcer les contrôles de saisie et la validation (ex : adresses email, code postal) pour éviter les
-            erreurs humaines récurrentes.</li>
-          <li>Mettre en place une vérification régulière de la qualité des données pour assurer la fiabilité des
-            analyses et statistiques.</li>
-        </ul>
-      </ul>
+      <h2>Indicateur 1 - Santé et Nutrition - <i>Yasmine</i> </h2>
+      <h3>Mesurer la popularité des différentes boissons et leur évolution dans une optique d'optimisation de l'offre
+        santé et bien-être.</h3>
+      <p>Enoncé : Identifier les 5 produits de la catégorie 'Boissons' les plus commandés en 2021 et calculer leur
+        évolution en
+        pourcentage par rapport à 2020 pour détecter les tendances de consommation santé.</p>
+      Objectif de cette requête : Mesurer la popularité des différentes boissons et leur évolution dans une optique
+      d'optimisation de l'offre santé et bien-être.
+
+      <h3> Construction de la requête SQL :</h3>
+      <p>Sous requête SQL : (afin d’avoir une requête condensée par la suite)</p>
+      <pre>
+    SELECT
+    Produit.RefProd,
+    Produit.NomProd,
+    SUM(DetailCommande.Quantité) AS QteTotale2020
+FROM
+    (
+        (
+            Categorie
+            INNER JOIN Produit ON Categorie.CodeCateg = Produit.CodeCateg
+        )
+        INNER JOIN DetailCommande ON Produit.RefProd = DetailCommande.[Réf produit]
+    )
+    INNER JOIN Commande ON DetailCommande.[N° commande] = Commande.[N° commande]
+WHERE
+    Categorie.NomCateg = "Boissons"
+    AND YEAR(Commande.DateCde) = 2020
+GROUP BY
+    Produit.RefProd,
+    Produit.NomProd;
+
+      </pre>
+      Requête SQL finale :
+      <pre>
+    SELECT
+    TOP 5 P.NomProd,
+    SUM(DC.Quantité) AS QteTotale2021,
+    Nz (Q20.QteTotale2020, 0) AS QteTotale2020,
+    Format(
+        (SUM(DC.Quantité) - Nz (Q20.QteTotale2020, 0)) * 100 / Nz (Q20.QteTotale2020, 1),
+        "0.0"
+    ) & "%" AS EvolutionPourcent
+FROM
+    (
+        (
+            (
+                Categorie
+                INNER JOIN Produit AS P ON Categorie.CodeCateg = P.CodeCateg
+            )
+            INNER JOIN DetailCommande AS DC ON P.RefProd = DC.[Réf produit]
+        )
+        INNER JOIN Commande ON DC.[N° commande] = Commande.[N° commande]
+    )
+    LEFT JOIN Qte_Boissons_2020 AS Q20 ON P.RefProd = Q20.RefProd
+WHERE
+    Categorie.NomCateg = "Boissons"
+    AND YEAR(Commande.DateCde) = 2021
+GROUP BY
+    P.NomProd,
+    P.RefProd,
+    Q20.QteTotale2020
+ORDER BY
+    SUM(DC.Quantité) DESC;
+      </pre>
+
+      <h3> Résultats de la requête SQL :</h3>
+      <table>
+        <caption>Évolution des ventes par produit (2020-2021)</caption>
+        <thead>
+          <tr>
+            <th>Nom Produit</th>
+            <th>QteTotale2021</th>
+            <th>QteTotale2020</th>
+            <th>EvolutionPourcent</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Guaraná Fantástica</td>
+            <td>1 317</td>
+            <td>258</td>
+            <td>+410,5%</td>
+          </tr>
+          <tr>
+            <td>Rhönbräu Klosterbier</td>
+            <td>1 270</td>
+            <td>288</td>
+            <td>+341,0%</td>
+          </tr>
+          <tr>
+            <td>Chang</td>
+            <td>1 233</td>
+            <td>113</td>
+            <td>+991,2%</td>
+          </tr>
+          <tr>
+            <td>Lakkalikööri</td>
+            <td>1 156</td>
+            <td>50</td>
+            <td>+2212,0%</td>
+          </tr>
+          <tr>
+            <td>Chaï</td>
+            <td>1 083</td>
+            <td>128</td>
+            <td>+746,1%</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3>Interprétation : </h3>
+      <p>Les résultats montrent une croissance très forte sur l'ensemble des boissons en 2021. Le Lakkalikööri se
+        distingue particulièrement avec +2212%, passant de 50 à 1156 unités. Le Chang (+991%) et le Chaï (+746%) suivent
+        cette dynamique, probablement portés par l'intérêt croissant pour les boissons exotiques et santé. <br><br>
+        Le Guaraná et le Rhönbräu maintiennent les plus gros volumes (>1200 unités) tout en affichant des progressions
+        notables (+410% et +341%). Ces chiffres confirment que le segment boissons est en plein essor et mérite d'être
+        renforcé dans l'offre KDou. <br><br>
+        Pour capitaliser sur ces tendances, il serait pertinent d'augmenter les stocks sur ces références, d'élargir la
+        gamme avec des produits similaires (autres bières artisanales, thés bio) et de communiquer davantage sur l'axe
+        bien-être.
+      </p>
+
+      <h2>Indicateur 2 - thème - <i>Axel</i> </h2>
+      <h3>Titre indicateur</h3>
+      <p>enonce/objectif de la requete</p>
+      <h3> Construction de la requête SQL :</h3>
+      <pre>
+    </pre>
+      <h3> Résultats de la requête SQL :</h3>
+
+      <h2>Indicateur 3 -  L’offre de KDou - <i>Kenza</i> </h2>
+      <h3>Titre indicateur</h3>
+      <p>enonce/objectif de la requete</p>
+      <h3> Construction de la requête SQL :</h3>
+      <pre>
+    </pre>
+      <h3> Résultats de la requête SQL :</h3>
+
+
+      <h2>Indicateur 4 - thème - <i>Tiago</i> </h2>
+      <h3>Titre indicateur</h3>
+      <p>enonce/objectif de la requete</p>
+      <h3> Construction de la requête SQL :</h3>
+      <pre>
+    </pre>
+      <h3> Résultats de la requête SQL :</h3>
+
     </section>
     <section>
       <h2>Rapport complet</h2>

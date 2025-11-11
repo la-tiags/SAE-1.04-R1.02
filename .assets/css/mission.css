@@ -98,6 +98,7 @@ h3 {
 p {
   margin-top: 10px;
   margin-bottom: 10px;
+  line-height: 1.6em;
 }
 
 li {
@@ -142,6 +143,56 @@ pre {
   box-shadow: 2px 2px 5px rgba(255, 255, 255, 0.2);
   color: #062b42;
 
+}
+
+/*Tableau Comparatif*/
+table {
+  width: 90%;
+  margin: 30px auto;
+  border-collapse: collapse;
+  box-shadow: 0 2px 12px rgba(34, 165, 218, 0.12);
+  background: #f9fbfc;
+}
+
+caption {
+  caption-side: top;
+  font-weight: bold;
+  font-size: 1.3em;
+  margin-bottom: 12px;
+  color: #2289c6;
+  letter-spacing: 1px;
+}
+
+thead th {
+  background-color: lightskyblue;
+  color: #fff;
+  padding: 12px;
+  font-size: 1.05em;
+  border-right: 2px solid #f9fbfc;
+}
+
+tbody tr {
+  border-bottom: 1px solid #dedede;
+}
+
+tbody td,
+tbody th {
+  padding: 10px 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+tbody tr:nth-child(even) {
+  background-color: #eef6fa;
+}
+
+tbody tr:hover {
+  background-color: #d6eaf8;
+}
+
+th[scope="row"] {
+  font-weight: bold;
+  color: #2289c6;
 }
 
 /*Footer*/
