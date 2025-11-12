@@ -60,6 +60,11 @@ nav {
   font-size: 1.8rem;
   font-weight: 700;
   text-decoration: none;
+}*
+
+.logo a:hover {
+  scale: (1.05);
+  transform: 3s;
 }
 
 .barre_navigation {
