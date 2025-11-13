@@ -75,6 +75,10 @@ nav {
   color: #fff;
 }
 
+.barre_navigation li {
+  margin-left: 0 !important;
+}
+
 .barre_navigation li a:hover {
   color: #ffffff;
   text-shadow: 0 0 10px #ffffff;

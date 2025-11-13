@@ -163,8 +163,13 @@ ORDER BY
       </p>
 
       <h2>Indicateur 2 - L'offre de Kdou - <i>Kenza</i> </h2>
-      <h3>Titre indicateur</h3>
-      <p>enonce/objectif de la requete</p>
+      <h3>Fournisseurs proposant un coût d’achat moyen inférieur à la moyenne du marché</h3>
+      <p> <strong>Enoncé : </strong> Lister, pour chaque pays et chaque société, les fournisseurs dont le coût d’achat
+        moyen des produits proposés est inférieur au coût moyen global des produits de la base. <br> </br>
+        <strong>Objectif de cette requête : </strong> L’objectif est d’identifier les partenaires commerciaux de KDou
+        offrant les tarifs les plus avantageux, afin d’optimiser la marge sur l’offre produit, valoriser les accords
+        avec ces fournisseurs.
+      </p>
       <h3> Construction de la requête SQL :</h3>
       <pre>
     SELECT
@@ -190,8 +195,34 @@ ORDER BY
     ORDER BY
       AVG(PR.CoutAchat);
       </pre>
-
       <h3> Résultats de la requête SQL <i>(extrait)</i> :</h3>
+      <table>
+        <caption>Fournisseurs avec coût d'achat moyen inférieur à la moyenne</caption>
+        <thead>
+          <tr>
+            <th>PaysFR</th>
+            <th>Societe</th>
+            <th>CoutMoyen</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Pays-Bas</td>
+            <td>Holland Zoetgoed BV</td>
+            <td>7,92 €</td>
+          </tr>
+          <tr>
+            <td>Pays-Bas</td>
+            <td>Tulip & Co. Delicacies</td>
+            <td>10,63 €</td>
+          </tr>
+          <tr>
+            <td>France</td>
+            <td>L’escargotière</td>
+            <td>11,04 €</td>
+          </tr>
+        </tbody>
+      </table>
       <h3>Interprétation : </h3>
       <p>
       </p>
@@ -202,7 +233,8 @@ ORDER BY
         l’Union Européenne à celle issue de fournisseurs hors UE. <br> </br>
         <strong>Objectif de cette requête :</strong>
         L’objectif de cette requête est de mesurer la dépendance de KDou à
-        l’importation hors Europe et d’identifier les zones géographiques qui contribuent le plus au chiffre d’affaires.
+        l’importation hors Europe et d’identifier les zones géographiques qui contribuent le plus au chiffre
+        d’affaires.
       </p>
       <h3> Construction de la requête SQL :</h3>
       <pre>
