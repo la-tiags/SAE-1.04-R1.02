@@ -75,6 +75,10 @@ nav {
   color: #fff;
 }
 
+/*
+*Annule la marge gauche globale sur les <li> pour éviter que la barre de
+*navigation ait plus d'espacement que prévu 
+*/
 .barre_navigation li {
   margin-left: 0 !important;
 }
@@ -128,10 +132,14 @@ pre {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   margin-top: 10px;
   margin-bottom: 10px;
-  white-space: pre-wrap;       /* Permet au texte de “revenir à la ligne” automatique */
-  word-break: break-word;      /* Coupe les longs mots ou url */
-  overflow-x: auto;            /* Ajoute une barre de scroll horizontale si vraiment nécessaire */
-  max-width: 100%;             /* Évite de dépasser le parent */
+  white-space: pre-wrap;
+  /* Permet au texte de “revenir à la ligne” automatique */
+  word-break: break-word;
+  /* Coupe les longs mots ou url */
+  overflow-x: auto;
+  /* Ajoute une barre de scroll horizontale si vraiment nécessaire */
+  max-width: 100%;
+  /* Évite de dépasser le parent */
 }
 
 
