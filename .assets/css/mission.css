@@ -124,8 +124,12 @@ pre {
   box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
   margin-top: 10px;
   margin-bottom: 10px;
-  white-space: pre;
+  white-space: pre-wrap;       /* Permet au texte de “revenir à la ligne” automatique */
+  word-break: break-word;      /* Coupe les longs mots ou url */
+  overflow-x: auto;            /* Ajoute une barre de scroll horizontale si vraiment nécessaire */
+  max-width: 100%;             /* Évite de dépasser le parent */
 }
+
 
 .lienbtn {
   display: inline-block;
