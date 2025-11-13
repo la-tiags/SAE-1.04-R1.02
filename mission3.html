@@ -41,10 +41,12 @@
       <h2>Indicateur 1 - Santé et Nutrition - <i>Yasmine</i> </h2>
       <h3>Mesurer la popularité des différentes boissons et leur évolution dans une optique d'optimisation de l'offre
         santé et bien-être.</h3>
-      <p>Enoncé : Identifier les 5 produits de la catégorie 'Boissons' les plus commandés en 2021 et calculer leur
+      <p><strong>Enoncé : </strong>Identifier les 5 produits de la catégorie 'Boissons' les plus commandés en 2021 et
+        calculer leur
         évolution en
         pourcentage par rapport à 2020 pour détecter les tendances de consommation santé.</p>
-      Objectif de cette requête : Mesurer la popularité des différentes boissons et leur évolution dans une optique
+      <strong>Objectif de cette requête : </strong>Mesurer la popularité des différentes boissons et leur évolution dans
+      une optique
       d'optimisation de l'offre santé et bien-être.
 
       <h3> Construction de la requête SQL :</h3>
@@ -160,35 +162,179 @@ ORDER BY
         bien-être.
       </p>
 
-      <h2>Indicateur 2 - thème - <i>Axel</i> </h2>
+      <h2>Indicateur 2 - L'offre de Kdou - <i>Kenza</i> </h2>
       <h3>Titre indicateur</h3>
       <p>enonce/objectif de la requete</p>
       <h3> Construction de la requête SQL :</h3>
       <pre>
-    </pre>
-      <h3> Résultats de la requête SQL :</h3>
+    SELECT
+    P.PaysFR,
+    F.Societe,
+    AVG(PR.CoutAchat) AS CoutMoyen
+    FROM
+    (
+        Fournisseur AS F
+        INNER JOIN Pays AS P ON F.NoPays = P.NoPays
+    )
+    INNER JOIN Produit AS PR ON F.NoFour = PR.NoFour
+    GROUP BY
+      P.PaysFR,
+      F.Societe
+    HAVING
+      AVG(PR.CoutAchat) < (
+        SELECT
+            AVG(P2.CoutAchat)
+          FROM
+            Produit AS P2
+    )
+    ORDER BY
+      AVG(PR.CoutAchat);
+      </pre>
 
-      <h2>Indicateur 3 - L’offre de KDou - <i>Kenza</i> </h2>
+      <h3> Résultats de la requête SQL <i>(extrait)</i> :</h3>
+      <h3>Interprétation : </h3>
+      <p>
+      </p>
+      <h2>Indicateur 3 - Provenance des produits/UE - <i>Tiago</i> </h2>
       <h3>Titre indicateur</h3>
-      <p>enonce/objectif de la requete</p>
+      <p><strong> Enoncé : </strong>Comparer la part du chiffre d’affaires générée par les produits achetés auprès de
+        fournisseurs de
+        l’Union Européenne à celle issue de fournisseurs hors UE.
+        <strong>Objectif de cette requête :</strong> L’objectif de cette requête est de mesurer la dépendance de KDou à
+        l’importation
+        hors Europe et d’identifier les zones géographiques qui contribuent le plus au chiffre d’affaires.
+      </p>
       <h3> Construction de la requête SQL :</h3>
       <pre>
-    </pre>
+  SELECT
+  Pays.UE AS Provenance,
+    CCur (
+        Sum(
+            (
+                Produit.CoutAchat * Categorie.CoefMarge * DetailCommande.Quantité
+            ) * (1 - [DetailCommande].[Remise (%)] / 100)
+        )
+    ) AS ChiffreAffaires
+  FROM
+    (
+        (
+            (
+                Categorie
+                INNER JOIN Produit ON Categorie.CodeCateg = Produit.CodeCateg
+            )
+            INNER JOIN DetailCommande ON Produit.RefProd = DetailCommande.[Réf produit]
+        )
+        INNER JOIN Fournisseur ON Produit.NoFour = Fournisseur.NoFour
+    )
+    INNER JOIN Pays ON Fournisseur.NoPays = Pays.NoPays
+GROUP BY
+  Pays.UE
+ORDER BY
+  CCur (
+      Sum(
+          Produit.CoutAchat * Categorie.CoefMarge * DetailCommande.Quantité * (1 - [DetailCommande].[Remise (%)] / 100)
+      )
+  ) DESC;
+      </pre>
       <h3> Résultats de la requête SQL :</h3>
-
+      <table>
+        <caption>Chiffre d'affaires par provenance des fournisseurs</caption>
+        <thead>
+          <tr>
+            <th>Provenance</th>
+            <th>ChiffreAffaires</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Membre</td>
+            <td>2 947 339,151 €</td>
+          </tr>
+          <tr>
+            <td>Hors</td>
+            <td>2 373 341,7694 €</td>
+          </tr>
+        </tbody>
+      </table>
 
       <h2>Indicateur 4 - Etude clientèle, partenariat - <i>Axel</i> </h2>
       <h3>Classement des produits selon quantité vendue et bénéfice total</h3>
-      <p> Enoncé : Classer les produits du catalogue KDou en fonction de la quantité totale vendue et du bénéfice cumulé
+      <p> <strong>Enoncé : </strong>Classer les produits du catalogue KDou en fonction de la quantité totale vendue et
+        du bénéfice
+        cumulé
         généré sur l’ensemble des ventes.
-        Objectif de cette requête : L’objectif de cette requête est d’identifier les produits qui contribuent le plus à
+        Objectif de cette requête : L’objectif de cette requête est d’identifier les produits qui contribuent le plus
+        à
         la performance financière de l’entreprise, afin d’ajuster au mieux la stratégie commerciale, la gestion des
         stocks et le ciblage des clients ou partenaires les plus pertinents.
       </p>
       <h3> Construction de la requête SQL :</h3>
       <pre>
+  SELECT
+    Produit.NomProd,
+    Sum(DetailCommande.Quantité) AS QuantiteTotale,
+    CCur (
+        Sum(
+            Categorie.CoefMarge * Produit.CoutAchat * DetailCommande.Quantité * (1 - DetailCommande.[Remise (%)])
+        )
+    ) AS BeneficeTotal
+  FROM
+    Categorie
+    INNER JOIN (
+        Produit
+        INNER JOIN DetailCommande ON Produit.RefProd = DetailCommande.[Réf produit]
+    ) ON Categorie.CodeCateg = Produit.CodeCateg
+  GROUP BY
+    Produit.NomProd
+  ORDER BY
+      3 DESC;
     </pre>
-      <h3> Résultats de la requête SQL :</h3>
+      <h3> Résultats de la requête SQL <i>(extrait)</i> :</h3>
+      <table>
+        <caption>Classement des produits par quantité vendue et bénéfice total</caption>
+        <thead>
+          <tr>
+            <th>Nom Produit</th>
+            <th>QuantiteTotale</th>
+            <th>BeneficeTotal</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Côte de Blaye</td>
+            <td>782</td>
+            <td>402 413,8449 €</td>
+          </tr>
+          <tr>
+            <td>Manjimup Dried Apples</td>
+            <td>1099</td>
+            <td>337 185,3931 €</td>
+          </tr>
+          <tr>
+            <td>Gorgonzola Telino</td>
+            <td>1 698</td>
+            <td>224 265,4605 €</td>
+          </tr>
+          <tr>
+            <td>Camembert Pierrot</td>
+            <td>1 993</td>
+            <td>222 359,6943 €</td>
+          </tr>
+          <tr>
+            <td>Mascarpone Fabioli</td>
+            <td>457</td>
+            <td>213 470,4043 €</td>
+          </tr>
+        </tbody>
+      </table>
+      <h3> Interprétation :</h3>
+      <p>L’analyse révèle que certains produits, comme Côte de Blaye ou Manjimup Dried Apples, génèrent à la fois un
+        volume de ventes élevé et un bénéfice total particulièrement important. Ce constat est essentiel pour le
+        pilotage de la stratégie commerciale. <br><br>
+        Cet indicateur renforce l’importance de bien connaître la structure de la clientèle et des réseaux de
+        partenariat. Il permet d’identifier les liens entre produits porteurs et typologie de clients associés, et de
+        transformer cette connaissance en leviers pour consolider et développer l’activité commerciale de KDou.
+      </p>
 
     </section>
     <section>
