@@ -1,6 +1,5 @@
 .inter-police {
   font-family: "Inter", sans-serif;
-  font-optical-sizing: auto;
   font-weight: 100;
   font-style: normal;
 }
@@ -73,6 +72,14 @@ nav {
   font-size: 1.05em;
   font-weight: 500;
   color: #fff;
+}
+
+/*
+*Annule la marge gauche globale sur les <li> pour éviter que la barre de
+*navigation ait plus d'espacement que prévu 
+*/
+.barre_navigation li {
+  margin-left: 0 !important;
 }
 
 .barre_navigation li a:hover {
