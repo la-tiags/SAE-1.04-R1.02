@@ -20,7 +20,7 @@ main {
   background: whitesmoke;
   box-shadow: #9c9c9c 0px 4px 8px;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: 20px auto;
   padding: 20px;
   border-radius: 8px;
   min-height: 80vh;
@@ -31,8 +31,8 @@ nav {
   width: 100%;
   padding: 1rem 5%;
   background-color: LightBlue;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  margin-bottom: 2rem;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
   top: 0%;
   display: flex;
   align-items: center;
@@ -58,6 +58,11 @@ nav {
   font-size: 1.8rem;
   font-weight: 700;
   text-decoration: none;
+}
+
+.logo:hover {
+  scale: 1.05;
+  transition: transform 0.4s ease-out;
 }
 
 .barre_navigation {
@@ -94,8 +99,18 @@ nav {
   text-align: center;
 }
 
-.titre {
-  padding: 15px 0 10px 20px;
+h1 {
+  padding-top: 15px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  padding-top: 10px;
+}
+
+li {
+  margin-left: 30px;
+  line-height: 1.6em;
 }
 
 .mission1btn {
@@ -137,7 +152,7 @@ nav {
 
 .cercle :hover {
   transform: scale(1.05);
-  transition: transform 0.3s;
+  transition: transform 0.4s ease-out;
 }
 
 .membre_photo {
@@ -159,10 +174,6 @@ nav {
 .role {
   padding-top: 10px;
   font-style: italic;
-}
-
-h3 {
-  padding-top: 10px;
 }
 
 /*Footer*/
