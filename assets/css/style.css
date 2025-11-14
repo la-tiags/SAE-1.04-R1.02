@@ -246,3 +246,52 @@ footer {
     font-size: 1.5rem;
   }
 }
+
+/* Adjustements pour la section équipe */
+/* enlever les puces et harmoniser l'affichage */
+ul.membre {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 32px;
+  flex-wrap: wrap;
+}
+
+ul.membre li {
+  margin: 0;
+  list-style: none;
+}
+
+/* corrige le sélecteur hover (était ".cercle :hover" avec un espace) */
+.cercle:hover {
+  transform: scale(1.05);
+  transition: transform 0.4s ease-out;
+}
+
+figure {
+  margin: 0;
+}
+
+figcaption {
+  text-align: center;
+  padding: 12px 8px;
+}
+
+/* agrandir légèrement les photos pour une meilleure lisibilité */
+.membre_photo {
+  width: 140px;
+  height: 140px;
+}
+
+/* ajustements responsive pour la section équipe */
+@media screen and (max-width: 520px) {
+  .membre_photo {
+    width: 120px;
+    height: 120px;
+  }
+  .cercle {
+    width: 160px;
+  }
+}
