@@ -13,8 +13,8 @@ Projet mené dans le cadre du BUT Informatique, Université Paris Cité.
 
 - Axel Li
 - Kenza Mokadem
-- Tiago Joaquim
-- Yasmine Mahfoudh
+- [Tiago Joaquim](https://github.com/la-tiags)
+- [Yasmine Mahfoudh](https://github.com/eth3ral0)
 
 ## Sommaire
 
@@ -96,18 +96,20 @@ ORDER BY QuantiteTotale DESC;
 
 ```bash
 /
-├── data/ # Base de données Access et jeux de données
-├── web/ # Présentation web en HTML/CSS
-├── rapport/ # Rapport PDF final et annexes
-├── README.md # Ce document
+├── assets/ # Dossier contenant les ressources (images, pdf, etc.)
+├── LICENSE # Licence du projet
+├── README.md # Présentation du projet (ce fichier)
+├── conclusion.html # Page de conclusion (bilan final, synthèse)
+├── index.html # Page d’accueil du site web
+├── mission1.html # Mission 1 : audit structurel et qualité des données
+├── mission2.html # Mission 2 : exploitation Access/QBE
+├── mission3.html # Mission 3 : analyse avancée SQL et KPI
 ```
 
 ---
 
 ## Liens utiles
 
-- [Sujet complet et consignes](SUJET__Sae104_2025_2026_Mission3.pdf)
-- [Synthèse de notre rapport](3_107_108_Mahfoudh_Mokadem_Li_Joaquim.pdf)
-- [Guide rendu web & rapport](2025-S1.04-ConsignesRendusRapport-SAE-et-WEB.pdf)
+- [Synthèse de notre rapport](assets/pdf/mission3_bilan.pdf)
 
 ---
