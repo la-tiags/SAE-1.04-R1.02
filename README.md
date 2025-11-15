@@ -94,12 +94,13 @@ ORDER BY QuantiteTotale DESC;
 
 ## Arborescence du dépôt
 
+```bash
 /
 ├── data/ # Base de données Access et jeux de données
 ├── web/ # Présentation web en HTML/CSS
 ├── rapport/ # Rapport PDF final et annexes
 ├── README.md # Ce document
-
+```
 
 ---
 
