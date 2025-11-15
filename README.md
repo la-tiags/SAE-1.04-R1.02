@@ -1,106 +1,112 @@
-# SAE S1.04 – Création d’une base de données  
-## et Rapport R1.02 – Développement d’interface Web  
+# SAE 1.04 – Création d'une base de données et Rapport R1.02 – Dev Interface Web
 
-### Présentation  
+## Présentation du projet
 
-Vous avez **deux rendus** à effectuer pour cette SAE :  
+Ce dépôt contient le travail de l’équipe DataVision réalisé pour l’entreprise KDou :
+- **Audit et optimisation** de la base de données (structure, cohérence, qualité)
+- **Exploitation métier** via interface Access et traitements SQL complexes
+- **Bilan et recommandations stratégiques** pour l’entreprise
 
-1. **Rendu SAE S1.04 :**  
-   - Compte-rendu final commun pour le groupe.  
-   - Format : **PDF**  
-   - À rendre sur **Moodle**.  
+Projet mené dans le cadre du BUT Informatique, Université Paris Cité.
 
-2. **Rendu R1.02 Dev Web :**  
-   - Présentation **WEB** basée sur le contenu du rendu SAE.  
-   - Format : **HTML + CSS uniquement**  
-   - Le rapport contiendra plusieurs pages :  
-     - Une **page d’accueil** : présentation du groupe, introduction du travail, liens vers les chapitres.  
-     - Plusieurs **pages de chapitres**, chacune correspondant à une partie du rapport.  
-     - Un **chapitre final** expliquant le travail réalisé pour la rédaction du rapport.  
+## Équipe
 
----
+- Axel Li
+- Kenza Mokadem
+- Tiago Joaquim
+- Yasmine Mahfoudh
 
-### Contenu du rapport (SAE et Web)  
+## Sommaire
 
-#### Introduction  
-Présentez le **contexte général** du projet KDou.
-
-#### Missions  
-
-##### **Mission 1**
-- Le contexte  
-- **Bilan structuré** sur l’étude des données (illustré par des exemples)  
-- **Perspectives d’amélioration** et conclusion  
-
-##### **Mission 2**
-- Le contexte : exploitation de la **BDD KDou** avec une **interface low-code**.  
-- Présentation d’**au moins un indicateur intéressant** :  
-  - Énoncé et interprétation  
-  - Résultat (captures d’écran et/ou tableaux)  
-  - Code SQL  
-
-##### **Mission 3**
-- Le contexte : **analyse des données de KDou nouvelle version** avec le langage SQL.  
-- Présentation d’**au moins un indicateur intéressant par personne** :  
-  - Énoncé, construction, SQL, résultat  
-- Thèmes possibles :  
-  1. En lien avec la **santé**, les **desserts**, **boissons**, etc.  
-  2. L’**offre** de KDou  
-  3. **Provenance** des produits / UE  
-  4. **Étude clientèle**, **partenariat**, etc.  
-
-#### Conclusion  
-- Pour **l’entreprise KDou** : conclusion sur l’analyse de ses données.  
-- Pour **vous** : conclusion sur les **outils utilisés** (Excel, Access QBE / SQL).  
+- [Contexte et objectifs](#contexte-et-objectifs)
+- [Mission 1 : Audit structurel et qualité des données](#mission-1--audit-structurel-et-qualité-des-données)
+- [Mission 2 : Exploitation métier via Access QBE](#mission-2--exploitation-métier-via-access-qbe)
+- [Mission 3 : Analyse avancée par requêtes SQL](#mission-3--analyse-avancée-par-requêtes-sql)
+- [Bilan et recommandations](#bilan-et-recommandations)
+- [Outils utilisés](#outils-utilisés)
+- [Arborescence du dépôt](#arborescence-du-dépôt)
 
 ---
 
-### Contraintes pour le rendu WEB  
+## Contexte et objectifs
 
-- **Travail personnel** : pas d’outil WYSIWYG, convertisseur ou générateur de pages web.  
-- Le **nombre de pages HTML** n’est pas imposé, mais doit être cohérent.  
-- Les documents doivent respecter le **standard HTML5** et la **sémantique**.  
-- Le site doit être **responsive** (mais lu sur ordinateur de bureau ou portable).  
-- **Charte graphique unique** pour tout le rapport.  
-- Une **barre de navigation fixée** (haut ou côté) doit permettre de parcourir les pages.  
-- Un **pied de page** doit être présent.  
+KDou, entreprise de distribution alimentaire, souhaite exploiter au mieux sa base de données :
+- Garantir la qualité/cohérence des données
+- Faciliter l’accès pour les utilisateurs métiers
+- Calculer des indicateurs stratégiques (KPI) pour orienter la décision
 
-#### Les pages doivent démontrer l’utilisation de :
-- Images  
-- Tableaux  
-- Listes à puces  
-- Positionnement et alignement avec **Flexbox**  
-
-#### L’architecture du site :
-- Doit être **réfléchie** et **justifiée** (organisation des fichiers).  
+Trois missions complémentaires pour couvrir ces objectifs.
 
 ---
 
-### Conseils HTML  
+## Mission 1 : Audit structurel et qualité des données
 
-- Éliminer les balises et identifiants superflus.  
-- Préférer l’imbrication à la suridentification.  
-- Utiliser des **classes** plutôt que des identifiants.  
-- Employer la **bonne sémantique** pour les tableaux.  
-- Utiliser des **media-queries** pour adapter le CSS selon la taille d’écran.  
-- **Redimensionner les images** et ajouter des **textes alternatifs** (accessibilité).  
-- Utiliser un **validateur HTML**.  
+- Analyse de la structure relationnelle (tables, clés, relations)
+- Détection des incohérences et anomalies
+- Recommandations pour améliorer la fiabilité
+
+**Exemple :** validation des clients par région, identification des fournisseurs hors UE, détection de produits sans commande.
 
 ---
 
-### Conseils CSS  
+## Mission 2 : Exploitation métier via Access QBE
 
-- **Ordonner** les styles pour une maintenance facile.  
-- Utiliser des **indentations** et **commentaires**.  
-- Soigner **l’ergonomie** et **l’esthétique**.  
-- Tester le site sur **au moins deux navigateurs**, dont **Firefox**.  
+- Mise en place d’une interface graphique pour les utilisateurs non techniques
+- Tests d’indicateurs : fournisseurs sans produits, nettoyage de données
+- Optimisations techniques (index, typage, harmonisation)
 
 ---
 
-### Contacts enseignants  
+## Mission 3 : Analyse avancée par requêtes SQL
 
-- marie-pia.cantel@u-paris.fr  
-- jerome.fessy@u-paris.fr  
-- laurent.giustignano@u-paris.fr  
-- florence.mesatfa-fessy@u-paris.fr  
+- Calcul de KPI stratégiques : chiffre d’affaires par catégorie/année, produits non commandés, CA hors UE, parité pilotes/partenaires
+- Requêtes avancées détaillées dans le rapport
 
+**Exemple de requête :**
+
+```SQL
+SELECT Produit.NomProd, SUM(DetailCommande.Quantité) AS QuantiteTotale,
+SUM(Categorie.CoefMarge * Produit.CoutAchat * DetailCommande.Quantité * (1-DetailCommande.Remise)) AS BeneficeTotal
+FROM Categorie
+INNER JOIN Produit ON Categorie.CodeCateg = Produit.CodeCateg
+INNER JOIN DetailCommande ON Produit.RefProd = DetailCommande.RefProd
+GROUP BY Produit.NomProd
+ORDER BY QuantiteTotale DESC;
+```
+
+---
+
+## Bilan et recommandations
+
+- **Points forts :** modèle relationnel cohérent, segments à fort potentiel, réseau clients efficace
+- **Points faibles :** anomalies de saisie, produits non commandés, gouvernance
+- **Recommandations :** nettoyage des données, mise en place de monitoring, optimisation du catalogue et des partenariats
+
+---
+
+## Outils utilisés
+
+- **Microsoft Excel** : exploration et analyse initiale
+- **Microsoft Access QBE** : interface graphique
+- **SQL** : requêtes avancées et automatisation
+
+---
+
+## Arborescence du dépôt
+
+/
+├── data/ # Base de données Access et jeux de données
+├── web/ # Présentation web en HTML/CSS
+├── rapport/ # Rapport PDF final et annexes
+├── README.md # Ce document
+
+
+---
+
+## Liens utiles
+
+- [Sujet complet et consignes](SUJET__Sae104_2025_2026_Mission3.pdf)
+- [Synthèse de notre rapport](3_107_108_Mahfoudh_Mokadem_Li_Joaquim.pdf)
+- [Guide rendu web & rapport](2025-S1.04-ConsignesRendusRapport-SAE-et-WEB.pdf)
+
+---
